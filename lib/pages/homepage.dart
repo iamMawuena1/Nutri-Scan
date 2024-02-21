@@ -30,7 +30,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: const Text("Camera"),
+        title: Text(
+          "Camera",
+          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+        ),
+        centerTitle: true,
       ),
       body: Column(
         children: [
