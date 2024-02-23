@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:nutriscan_app/pages/components/app_image_puicker.dart';
 import 'package:nutriscan_app/pages/components/camer_button.dart';
+import 'package:nutriscan_app/pages/components/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,35 +27,38 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF860D9A),
+      drawer: const CustomDrawer(),
+      // backgroundColor: const Color(0xFF860D9A),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Camera",
-          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+          // style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          if (image != null) Image.file(image!),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              MediaButton(
-                text: 'Camera',
-                icon: Icons.camera_alt,
-                onTap: () => pickImage(ImageSource.camera),
-              ),
-              MediaButton(
-                text: "Gallery",
-                icon: Icons.file_copy_rounded,
-                onTap: () => pickImage(ImageSource.gallery),
-              ),
-            ],
-          ),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            if (image != null) Image.file(image!),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                MediaButton(
+                  text: 'Camera',
+                  icon: Icons.camera_alt,
+                  onTap: () => pickImage(ImageSource.camera),
+                ),
+                MediaButton(
+                  text: "Gallery",
+                  icon: Icons.file_copy_rounded,
+                  onTap: () => pickImage(ImageSource.gallery),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

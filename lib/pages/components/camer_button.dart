@@ -21,7 +21,7 @@ class MediaButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: Colors.black,
           ),
         ),
         child: Center(
@@ -31,12 +31,12 @@ class MediaButton extends StatelessWidget {
               Icon(
                 icon,
                 size: 50,
-                color: Theme.of(context).colorScheme.onPrimary,
+                color: Colors.black,
               ),
               Text(
                 text,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary,
+                style: const TextStyle(
+                  color: Colors.black,
                 ),
               ),
             ],
