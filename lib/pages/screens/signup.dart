@@ -124,6 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               // ignore: dead_code
                               isObscure
                                   ? Icons.visibility_off
+                                  // ignore: dead_code
                                   : Icons.visibility,
                             ),
                             onPressed: () {

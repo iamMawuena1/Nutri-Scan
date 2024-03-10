@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nutriscan_app/pages/homepage.dart';
-import 'package:nutriscan_app/pages/onboarding.dart';
 import 'package:nutriscan_app/pages/screens/login.dart';
 import 'package:nutriscan_app/pages/screens/signup.dart';
-
-import 'pages/splashcreen.dart';
+import 'package:nutriscan_app/pages/view/homepage.dart';
+import 'package:nutriscan_app/pages/view/onboarding.dart';
+import 'package:nutriscan_app/pages/view/splashcreen.dart';
 
 void main() {
   runApp(const MyApp());
