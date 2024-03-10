@@ -34,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     //login
     void loginScreen() {
-      Navigator.pushNamed(context, '/login');
+      Navigator.pushNamed(context, '/homepage');
     }
 
     //sign up btn fumction
