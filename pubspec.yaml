@@ -38,7 +38,7 @@ dependencies:
   smooth_page_indicator:
   meta:
   image_picker:
-  tflite_v2: ^1.0.0
+  tflite_v2: 
   camera: ^0.10.5+9
 
 
