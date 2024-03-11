@@ -1,7 +1,5 @@
 // class HomePage extends StatelessWidget {
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:nutriscan_app/pages/view/camera.dart';
 import 'package:nutriscan_app/pages/view/galleryscreen.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,34 +21,24 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            //Camera button
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CameraScreen(),
-                  ),
-                );
+                Navigator.pushNamed(context, 'camera');
               },
               child: const Text('Camera'),
             ),
+            //gallery button
             ElevatedButton(
-              onPressed: () async {
-                final image =
-                    await ImagePicker().pickImage(source: ImageSource.gallery);
-                if (image != null) {
+                child: const Text("Gallery"),
+                onPressed: () {
                   Navigator.push(
-                    // ignore: use_build_context_synchronously
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          GalleryScreen(imagePath: image.path),
+                      builder: (context) => const GalleryScreen(),
                     ),
                   );
-                }
-              },
-              child: const Text('Gallery'),
-            ),
+                }),
           ],
         ),
       ),

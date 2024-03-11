@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutriscan_app/pages/screens/login.dart';
 import 'package:nutriscan_app/pages/screens/signup.dart';
+import 'package:nutriscan_app/pages/view/galleryscreen.dart';
 import 'package:nutriscan_app/pages/view/homepage.dart';
 import 'package:nutriscan_app/pages/view/onboarding.dart';
 import 'package:nutriscan_app/pages/view/splashcreen.dart';
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
         '/homepage': (context) => const HomePage(),
         '/onboarding': (context) => const OnboardingPage(),
         '/splashscreen': (context) => const SplashScreen(),
+        // '/camera': (context) => const CameraScreen(),
+        '/gallery': (context) => const GalleryScreen(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
       },
