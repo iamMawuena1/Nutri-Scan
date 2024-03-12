@@ -1,5 +1,6 @@
 // class HomePage extends StatelessWidget {
 import 'package:flutter/material.dart';
+import 'package:nutriscan_app/pages/view/camera.dart';
 import 'package:nutriscan_app/pages/view/galleryscreen.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,7 +25,12 @@ class _HomePageState extends State<HomePage> {
             //Camera button
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CameraScreen(),
+                  ),
+                );
               },
               child: const Text('Camera'),
             ),

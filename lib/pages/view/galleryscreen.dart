@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:nutriscan_app/pages/components/drawer.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 class GalleryScreen extends StatefulWidget {
@@ -60,14 +61,13 @@ class _GalleryScreenState extends State<GalleryScreen> {
   }
 
   Future<void> loadMyModel() async {
-    var resultant = await Tflite.loadModel(
+    await Tflite.loadModel(
       model: "images/model_unquant.tflite",
       labels: "images/labels.txt",
       numThreads: 1,
       isAsset: true,
       // useGpuDelegate: true,
     );
-    print("Results after scan is $resultant");
   }
 
   @override
@@ -88,6 +88,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
         centerTitle: true,
         elevation: 0,
       ),
+      drawer: const CustomDrawer(),
       body: isImageLoaded
           ? Container(
               alignment: Alignment.center,
