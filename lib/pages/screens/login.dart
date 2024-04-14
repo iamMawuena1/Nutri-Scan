@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nutriscan_app/pages/components/mybutton.dart';
 
+import '../components/mytextfield.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -35,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   //checking for text obscurity
-  bool _isObscure = true;
+  // bool _isObscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -79,70 +81,32 @@ class _LoginScreenState extends State<LoginScreen> {
                   const SizedBox(height: 10),
 
                   //emai field
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      controller: emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                          borderSide: BorderSide(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                        ),
-                        hintText: 'Enter E-mail',
-                        hintStyle: TextStyle(
-                          color: Theme.of(context).colorScheme.onPrimary,
-                        ),
-                      ),
-                      validator: (mail) {
-                        return !mail!.contains("@")
-                            ? "Please enter a valid e-mail"
-                            : null;
-                      },
-                    ),
+                  MyTextfield(
+                    obscureText: false,
+                    controller: emailController,
+                    hintText: 'Enter Email',
+                    validator: (mail) {
+                      return !mail!.contains("@")
+                          ? "Please enter a valid e-mail"
+                          : null;
+                    },
                   ),
                   const SizedBox(height: 10),
 
                   //password field
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: TextFormField(
-                      controller: passwordController,
-                      obscureText: _isObscure,
-                      decoration: InputDecoration(
-                        hintText: "Enter Password",
-                        hintStyle: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary),
-                        suffixIconColor:
-                            Theme.of(context).colorScheme.onPrimary,
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _isObscure
-                                ? Icons.visibility_off
-                                : Icons.visibility,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          },
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                      ),
-                      validator: (password) {
-                        if (password == null || password.trim().isEmpty) {
-                          return 'This field is required';
-                        }
-                        if (password.trim().length < 8) {
-                          return 'Password must be at least 8 characters in length';
-                        }
-                        return null;
-                      },
-                    ),
+                  MyTextfield(
+                    hintText: 'Enter Password',
+                    controller: passwordController,
+                    obscureText: true,
+                    validator: (password) {
+                      if (password == null || password.trim().isEmpty) {
+                        return 'This field is required';
+                      }
+                      if (password.trim().length < 8) {
+                        return 'Password must be at least 8 characters in length';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 20),
 
@@ -150,6 +114,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   MyButton(
                     onTap: () => loginBtn(),
                     padding: const EdgeInsets.all(20),
+                    width: double.infinity,
+                    color: Theme.of(context).colorScheme.onPrimary,
                     child: const Text(
                       "Login",
                       textAlign: TextAlign.center,

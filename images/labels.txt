@@ -1,23 +1,29 @@
-0 Banku
-1 Beans
-2 Boiled yam
-3 Egg stew
-4 Fried fish
-5 Class 6
-6 Fried rice
-7 Fried yam
-8 Fufu
-9 Fufu and soup
-10 Garri
-11 Grilled chicken
-12 Ice cream
-13 Jollof
-14 Kenkey
-15 Kontomire
-16 Okro soup
-17 Pizza
-18 Plain rice
-19 Rice and stew
-20 Soup
-21 Waakye
-22 Yam
+0 Almond cookies
+1 Banku
+2 Beans
+3 Boiled yam
+4 Cheddar cheese
+5 Chicken noodle soup
+6 Chicken wings
+7 Egg stew
+8 Fried fish
+9 Fried plantain
+10 Fried rice
+11 Fried yam
+12 Fufu
+13 Fufu and soup
+14 Gari
+15 Grilled chicken
+16 Ice cream
+17 Jollof rice
+18 Kenkey
+19 Kontomire stew
+20 Okro soup
+21 Pizza
+22 Plain rice
+23 Rice and stew
+24 Soup
+25 Spaghetti Bolognese 
+26 Spring rolls
+27 Waakye
+28 Yam

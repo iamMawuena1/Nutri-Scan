@@ -41,6 +41,7 @@ dependencies:
   tflite_v2: 
   camera: ^0.10.5+9
   logger:
+  carousel_slider: ^4.2.1
 
 
 

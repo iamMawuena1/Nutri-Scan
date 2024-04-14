@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nutriscan_app/pages/components/mybutton.dart';
 
+import '../components/mytextfield.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -16,6 +18,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmpassController = TextEditingController();
+  final allergyController = TextEditingController();
 
   @override
   void dispose() {
@@ -23,6 +26,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     emailController.dispose();
     passwordController.dispose();
     confirmpassController.dispose();
+    allergyController.dispose();
 
     super.dispose();
   }
@@ -30,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     // checking for password visibility
-    bool isObscure = true;
+    // bool isObscure = true;
 
     //login
     void loginScreen() {
@@ -80,120 +84,66 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 10),
 
+                    //allergy search
+                    MyTextfield(
+                      obscureText: false,
+                      controller: allergyController,
+                      hintText: 'Enter Allergy',
+                    ),
+                    const SizedBox(height: 10),
+
                     //emai field
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                            borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                            ),
-                          ),
-                          hintText: 'Enter E-mail',
-                          hintStyle: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                        ),
-                        validator: (mail) {
-                          return !mail!.contains("@")
-                              ? "Please enter a valid e-mail"
-                              : null;
-                        },
-                      ),
+                    MyTextfield(
+                      obscureText: false,
+                      controller: emailController,
+                      hintText: 'Enter Email',
+                      validator: (mail) {
+                        return !mail!.contains("@")
+                            ? "Please enter a valid e-mail"
+                            : null;
+                      },
                     ),
                     const SizedBox(height: 10),
 
                     //password field
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: passwordController,
-                        obscureText: isObscure,
-                        decoration: InputDecoration(
-                          hintText: "Enter Password",
-                          hintStyle: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimary),
-                          suffixIconColor:
-                              Theme.of(context).colorScheme.onPrimary,
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              // ignore: dead_code
-                              isObscure
-                                  ? Icons.visibility_off
-                                  // ignore: dead_code
-                                  : Icons.visibility,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isObscure = !isObscure;
-                              });
-                            },
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                        ),
-                        validator: (password) {
-                          if (password == null || password.trim().isEmpty) {
-                            return 'This field is required';
-                          }
-                          if (password.trim().length < 8) {
-                            return 'Password must be at least 8 characters in length';
-                          }
-                          return null;
-                        },
-                      ),
+                    MyTextfield(
+                      hintText: 'Enter Password',
+                      controller: passwordController,
+                      obscureText: true,
+                      validator: (password) {
+                        if (password == null || password.trim().isEmpty) {
+                          return 'This field is required';
+                        }
+                        if (password.trim().length < 8) {
+                          return 'Password must be at least 8 characters in length';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 20),
 
                     //confirm password
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: TextFormField(
-                        controller: passwordController,
-                        obscureText: isObscure,
-                        decoration: InputDecoration(
-                          hintText: "Confirm Password",
-                          hintStyle: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimary),
-                          suffixIconColor:
-                              Theme.of(context).colorScheme.onPrimary,
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              isObscure
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                isObscure = !isObscure;
-                              });
-                            },
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                        ),
-                        validator: (password) {
-                          if (password == null || password.trim().isEmpty) {
-                            return 'This field is required';
-                          }
-                          if (password.trim().length < 8) {
-                            return 'Password must be at least 8 characters in length';
-                          }
-                          return null;
-                        },
-                      ),
+                    MyTextfield(
+                      controller: confirmpassController,
+                      hintText: 'Confirm Password',
+                      obscureText: true,
+                      validator: (password) {
+                        if (password == null || password.trim().isEmpty) {
+                          return 'This field is required';
+                        }
+                        if (password.trim().length < 8) {
+                          return 'Password must be at least 8 characters in length';
+                        }
+                        return null;
+                      },
                     ),
 
                     //submit btn
                     MyButton(
                       onTap: () => signUpBtn(),
                       padding: const EdgeInsets.all(20),
+                      width: double.infinity,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       child: const Text(
                         "Sign Up",
                         textAlign: TextAlign.center,
